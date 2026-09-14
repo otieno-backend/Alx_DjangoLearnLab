@@ -88,9 +88,8 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = [
         IsAuthorOrReadOnly,
-        permissions.IsAuthenticated
+        permissions.IsAuthenticated,
     ]
-
     pagination_class = PostCommentPagination
 
     def get_queryset(self):
@@ -102,6 +101,9 @@ class CommentViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(post_id=post_id)
 
         return queryset
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class LikePostView(APIView):
