@@ -54,6 +54,42 @@ Local API:
 
 http://127.0.0.1:8000/
 
+## Tests
+The project includes automated tests using Django's test framework and Django REST Framework's APITestCase.
+
+### Tests cover:
+
+User authentication and permissions
+
+Post creation, updating and deletion
+
+Comment creation and validation
+
+Automatic comment author assignment
+
+Comment filtering by post
+
+Notification creation
+
+Preventing users from receiving notifications for their own actions
+
+Notification listing
+
+Unread notification count
+
+Marking notifications as read
+
+Preventing users from modifying other users' notifications
+
+Follower notifications when a new post is created
+
+Handling invalid posts in notification tasks
+
+### Run All Tests
+From the social_media_api directory:
+
+python manage.py test
+
 🔎 Keywords
 
 Django Django REST Framework DRF Python REST API Social Media API Backend Authentication Token Authentication User Profiles Posts API Comments API Followers Following Search API Pagination CORS PostgreSQL SQLite Render Django Backend
