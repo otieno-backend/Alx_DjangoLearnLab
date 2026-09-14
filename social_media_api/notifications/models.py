@@ -22,6 +22,7 @@ class Notification(models.Model):
         on_delete=models.CASCADE,
     )
     target_object_id = models.PositiveBigIntegerField()
+
     target = GenericForeignKey(
         "target_content_type",
         "target_object_id",
@@ -32,4 +33,6 @@ class Notification(models.Model):
 
     class Meta:
         ordering = ["read", "-timestamp"]
-        
+
+    def __str__(self):
+        return f"{self.actor} {self.verb} for {self.recipient}"
